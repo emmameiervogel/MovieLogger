@@ -1,20 +1,18 @@
 package com.me.movielogger.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import com.me.movielogger.model.Movie;
+import com.me.movielogger.service.MovieService;
+
+import java.util.List;
 
 @RestController
 public class MovieController {
 
-    @GetMapping("/")
-    public String index() {
-        return "Greetings from Spring Boot!";
+    @GetMapping("/search")
+    public ResponseEntity<List<Movie>> searchMovies(@RequestParam("query") String query) {
+        return ResponseEntity.ok(MovieService.searchMovies(query));
     }
-
-    @GetMapping()
-    public ResponseEntity<> getProductDetailsById(String productId) {
-
-    }
-
 }
