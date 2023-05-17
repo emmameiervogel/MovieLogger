@@ -11,8 +11,8 @@ import java.util.List;
 @RestController
 public class MovieController {
 
-    @GetMapping("/search")
-    public ResponseEntity<List<Movie>> searchMovies(@RequestParam("query") String query) {
-        return ResponseEntity.ok(MovieService.searchMovies(query));
+    @GetMapping("/search/{title}")
+    public ResponseEntity<List<Movie>> findMovieByTitle(@RequestParam("title") String title) {
+        return ResponseEntity.ok(MovieService.findMovieByTitle(title));
     }
 }
