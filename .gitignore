@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### OMDB API Key ###
+/src/main/resources/omdb-api-key.yml

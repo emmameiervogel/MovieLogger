@@ -15,15 +15,15 @@ import java.util.List;
 public class MovieController {
 
     @Autowired
-    private MovieDao movieDao;
+    private MovieService movieService;
 
     @GetMapping("/search/{title}")
-    public ResponseEntity<List<Movie>> findMovieByTitle(@RequestParam("title") String title) {
-        return ResponseEntity.ok(MovieService.findMovieByTitle(title));
+    public ResponseEntity<Movie> findMovieByTitle(@RequestParam("title") String title) {
+        return ResponseEntity.ok(movieService.findMovieByTitle(title));
     }
 
-    @PostMapping("/search/{title}")
-    public ResponseEntity<Movie> createNewMovie(@ResponseBody Movie movie){
-        return ResponseEntity.ok(MovieService.storeMovieDetails(movie))
-    }
+//    @PostMapping("/search/{title}")
+//    public ResponseEntity<Movie> createNewMovie(@ResponseBody Movie movie){
+//        return ResponseEntity.ok(MovieService.storeMovieDetails(movie))
+//    }
 }
